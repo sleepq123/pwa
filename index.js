@@ -53,11 +53,12 @@ window.addEventListener('beforeinstallprompt', (e) => {
 // 授权
 var button = document.getElementById("notifications");
 button.addEventListener('click', function(e) {
-    Notification.requestPermission().then(function(result) {
-        if(result === 'granted') {
-            randomNotification();
-        }
-    });
+  Notification.requestPermission().then(function(result) {
+    // default，granted 或者denied (当用户没有做出选择的时候，授权结果会返回defalut)
+    if(result === 'granted') {
+      randomNotification();
+    }
+  });
 });
 
 let games = [
