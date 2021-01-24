@@ -22,7 +22,7 @@ if ('serviceWorker' in navigator) {
 // Code to handle install prompt on desktop
 
 let deferredPrompt;
-const addBtn = document.getElementById('.add-button');
+const addBtn = document.getElementById('add-button');
 addBtn.style.display = 'none';
 
 window.addEventListener('beforeinstallprompt', (e) => {
