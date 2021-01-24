@@ -63,19 +63,19 @@ button.addEventListener('click', function(e) {
 
 let games = [
   {
-    name: 'Jack',
+    author: 'Jack',
     slug: 'fox1'
   },
   {
-    name: 'Tom',
+    author: 'Tom',
     slug: 'fox2'
   },
   {
-    name: 'Alice',
+    author: 'Alice',
     slug: 'fox3'
   },
   {
-    name: 'TieZhu',
+    author: 'TieZhu',
     slug: 'fox4'
   }
 ]
@@ -83,7 +83,7 @@ let games = [
 // 模拟通知
 function randomNotification() {
   var randomItem = Math.floor(Math.random()*games.length);
-  var notifTitle = games[randomItem].name;
+  var notifTitle = games[randomItem].name || '通知消息';
   var notifBody = 'Created by '+games[randomItem].author+'.';
   var notifImg = 'images/'+games[randomItem].slug+'.jpg';
   var options = {
