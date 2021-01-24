@@ -49,3 +49,46 @@ window.addEventListener('beforeinstallprompt', (e) => {
     });
   });
 });
+
+// 授权
+var button = document.getElementById("notifications");
+button.addEventListener('click', function(e) {
+    Notification.requestPermission().then(function(result) {
+        if(result === 'granted') {
+            randomNotification();
+        }
+    });
+});
+
+let games = [
+  {
+    name: 'Jack',
+    slug: 'fox1'
+  },
+  {
+    name: 'Tom',
+    slug: 'fox2'
+  },
+  {
+    name: 'Alice',
+    slug: 'fox3'
+  },
+  {
+    name: 'TieZhu',
+    slug: 'fox4'
+  }
+]
+
+// 模拟通知
+function randomNotification() {
+  var randomItem = Math.floor(Math.random()*games.length);
+  var notifTitle = games[randomItem].name;
+  var notifBody = 'Created by '+games[randomItem].author+'.';
+  var notifImg = 'images/'+games[randomItem].slug+'.jpg';
+  var options = {
+      body: notifBody,
+      icon: notifImg
+  }
+  var notif = new Notification(notifTitle, options);
+  setTimeout(randomNotification, 30000);
+}
